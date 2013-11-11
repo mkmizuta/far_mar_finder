@@ -1,3 +1,3 @@
-class Vendors
+class Vendor
   
 end
