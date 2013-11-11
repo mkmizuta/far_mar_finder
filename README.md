@@ -1,7 +1,7 @@
 ## Authors
 
 - Melinda Mizuta
-
+- Simone Sydnor
 
 # FarMar Finder
 
