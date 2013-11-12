@@ -7,5 +7,17 @@ require_relative 'Product'
 # ... Require all of the supporting classes
 
 class FarMarFinder
-  # Your code goes here
+  def markets
+    return @market
+  end
+
+  def Vendor
+  end
+
+  def Sale
+  end
+
+  def Product
+  end
+
 end
