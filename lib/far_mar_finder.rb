@@ -8,16 +8,23 @@ require_relative 'Product'
 
 class FarMarFinder
   def markets
-    return @market
+    finder = Market.new()
+    return Market
   end
 
-  def Vendor
+  def vendors
+    finder = Vendor.new()
+    return Vendor
   end
 
-  def Sale
+  def sales
+    finder = Sale.new()
+    return Sale
   end
 
-  def Product
+  def products
+    finder = Product.new()
+    return Product
   end
 
 end
