@@ -9,5 +9,4 @@ class Vendor
       Vendor.new()
     end
   end 
-
 end
