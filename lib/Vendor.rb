@@ -9,4 +9,10 @@ class Vendor
       Vendor.new()
     end
   end 
+
+  def self.find(index)
+    data = CSV.open("./support/vendors.csv", 'r') do |row|
+    puts row.select[0]
+    end
+  end 
 end

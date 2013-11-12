@@ -9,4 +9,10 @@ class Sale
       Sale.new()
     end
   end
+
+  def self.find(index)
+    data = CSV.open("./support/sales.csv", 'r') do |row|
+    puts row.select[0]
+    end
+  end 
 end
