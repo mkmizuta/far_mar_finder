@@ -1,8 +1,8 @@
 class Vendor
 
-  def initialize(array)
+  # def initialize(array)
 
-  end
+  # end
 
   def self.all
     CSV.read("./support/vendors.csv").each do |array|

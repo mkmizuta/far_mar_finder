@@ -1,8 +1,8 @@
 class Market
 
-  def initialize(array)
+  # def initialize
 
-  end
+  # end
 
   def self.all
     CSV.read("./support/markets.csv").each do |array|

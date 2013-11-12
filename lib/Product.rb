@@ -1,8 +1,8 @@
 class Product
 
-  def initialize(array)
+  # def initialize(array)
 
-  end
+  # end
 
   def self.all
     CSV.read("./support/products.csv").each do |array|
