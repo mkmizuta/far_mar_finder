@@ -28,7 +28,7 @@ describe Market do
     # 1,People's Co-op Farmers Market,30,Portland,Multnomah,Oregon,97202
     
     it "has the id 1" do
-      expect(market.id).to eq 1
+      expect(market.id).to eq "1"
     end
 
     it "has the name 'People's Co-op Farmers Market'" do
