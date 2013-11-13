@@ -39,6 +39,10 @@ def self.find_all_name(name)
       end
   end
 
+  def vendors
+    Vendor.find_all_market_id(@id)
+  end
+
 end
 
 
