@@ -21,19 +21,25 @@ class Market
 
 
  def self.find_by_name(name)  
-    all.find.casecmp do |market|
-    market.name =~ /name/
+    all.find do |market|
+    market.name.downcase =~ /#{name}/i
     end
   end
+
+
+def self.find_all_name(name)  
+    all.find_all do |market|
+    market.name.downcase =~ /#{name}/i
+    end
+  end
+
+  def self.find(market_id)  
+    all.find do |market|
+      market.id.to_i == market_id.to_i
+      end
+  end
+
 end
-
-  # def self.find(market_id)  
-  #   all.find do |market|
-  #     market.id.to_i == market_id.to_i
-  #     end
-  # end
-
-# end
 
 
 
