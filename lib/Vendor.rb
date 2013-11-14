@@ -38,6 +38,7 @@ attr_accessor :id, :name, :no_of_employees, :market_id
     end
   end
 
+# - `market` - returns the `Market` instance that is associated with this vendor using the `Vendor` `market_id` field
   def market
     Market.find(@market_id)
   end
@@ -49,17 +50,19 @@ attr_accessor :id, :name, :no_of_employees, :market_id
 
 # `sales` - returns a collection of `Sale` instances that are associated with market by the `vendor_id` field.
   def sales
-
+    Sale.find_all_by_vendor_id(@id)
   end
+
+# - `revenue` - returns the the sum of all of the vendor's sales (in cents)
 
   def revenue
+    Sale.sales_sum_in_cents(@id)
   end
 
-  
+# `self.by_market(market_id)` - returns all of the vendors with the given `market_id`
+  def self.by_market_id(market_id)
+    all.find_all do |vendor|
+      vendor.market_id.to_i == market_id.to_i
+    end  
+  end
 end
-
-# def self.find(index)
-#     data = CSV.open("./support/vendors.csv", 'r') do |row|
-#     puts row.select[0]
-#     end
-#   end 

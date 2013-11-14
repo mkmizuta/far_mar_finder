@@ -43,22 +43,10 @@ def self.find_all_name(name)
     Vendor.find_all_market_id(@id)
   end
 
+  def self.find(market_id)  
+    all.find_all do |market|
+      market.id.to_i == market_id.to_i
+    end
+  end
 end
 
-
-
-
-
-  
-
-#   def self.find(index)
-#     data = CSV.open("./support/markets.csv", 'r') do |row|
-#     puts row.select[0]
-#     end
-#   end
-# end
-
-# puts Market.all.count 
-
-
-# puts Market.find(id)
