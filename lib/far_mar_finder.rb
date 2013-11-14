@@ -8,22 +8,26 @@ require_relative 'Product'
 
 class FarMarFinder
   def markets
-    finder = Market.new()
+    array = ["1", "People's Co-op Farmers Market", "30th and Burnside", "Portland", "Multnomah", "Oregon", "97202"]
+    finder = Market.new(array)
     return Market
   end
 
   def vendors
-    finder = Vendor.new()
+    array = ["1", "Feil-Farrell", "8", "1"]
+    finder = Vendor.new(array)
     return Vendor
   end
 
   def sales
-    finder = Sale.new()
+    array = ["1", "9290", "2011-03-31 02:47:56 -0700", "1", "1"]
+    finder = Sale.new(array)
     return Sale
   end
 
   def products
-    finder = Product.new()
+    array = ["1", "Dry Beets", "1"]
+    finder = Product.new(array)
     return Product
   end
 
