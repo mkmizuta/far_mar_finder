@@ -10,7 +10,7 @@ attr_accessor :id, :amount_in_cents, :purchase_time, :vendor_id, :product_id
   end
 
   def self.all
-    CSV.read("./support/sales.csv").map do |array|
+    @all_sales ||= CSV.read("./support/sales.csv").map do |array|
       Sale.new(array)
     end
   end
@@ -60,7 +60,7 @@ attr_accessor :id, :amount_in_cents, :purchase_time, :vendor_id, :product_id
     all.find_all { |sale| sale.purchase_time.between?( Time.parse(beginning_time), Time.parse(end_time) )}
   end
 
-   def amount
+  def amount
     @amount_in_cents
   end
 end

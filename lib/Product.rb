@@ -8,7 +8,7 @@ attr_accessor  :id, :name, :vendor_id
   end  
 
   def self.all
-    CSV.read("./support/products.csv").map do |array|
+    @all_product ||= CSV.read("./support/products.csv").map do |array|
       Product.new(array)
     end
   end
@@ -49,13 +49,13 @@ attr_accessor  :id, :name, :vendor_id
     Sale.find_all_by_product_id(@id)
   end
 
-  #   `number_of_sales` - returns the number of times this product has been sold.
+  # `number_of_sales` - returns the number of times this product has been sold.
 
   def number_of_sales
     Sale.find_all_by_product_id(@id).count
   end
 
-  # # - `self.by_vendor(vendor_id)` - returns all of the products with the given `vendor_id`
+  # - `self.by_vendor(vendor_id)` - returns all of the products with the given `vendor_id`
 
   def self.by_vendor(vendor_id)
     all.find_all do |product|

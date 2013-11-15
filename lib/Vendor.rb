@@ -9,7 +9,7 @@ attr_accessor :id, :name, :no_of_employees, :market_id
   end
 
   def self.all
-    CSV.read("./support/vendors.csv").map do |array|
+    @all_vendors ||= CSV.read("./support/vendors.csv").map do |array|
       Vendor.new(array)
     end
   end 
@@ -39,16 +39,19 @@ attr_accessor :id, :name, :no_of_employees, :market_id
   end
 
   # - `market` - returns the `Market` instance that is associated with this vendor using the `Vendor` `market_id` field
+
   def market
     Market.find(@market_id)
   end
 
   #- `products` - returns a collection of `Product` instances that are associated with market by the `Product` `vendor_id` field.
+
   def products
     Product.find_all_by_vendor_id(@id)
   end
 
   # `sales` - returns a collection of `Sale` instances that are associated with market by the `vendor_id` field.
+
   def sales
     Sale.find_all_by_vendor_id(@id)
   end

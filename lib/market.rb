@@ -14,7 +14,7 @@ class Market
   end
 
   def self.all
-    CSV.read("./support/markets.csv").map do |array|
+    @all_market ||= CSV.read("./support/markets.csv").map do |array|
       Market.new(array)
     end
   end 
