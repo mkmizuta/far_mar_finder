@@ -15,18 +15,6 @@ attr_accessor :id, :amount_in_cents, :purchase_time, :vendor_id, :product_id
     end
   end
 
-   def self.find_by_name(name)  
-    all.find do |sale|
-      sale.name.downcase =~ /#{name}/i
-    end
-  end
-
-  def self.find_all_name(name)  
-    all.find_all do |sale|
-      sale.name.downcase =~ /#{name}/i
-    end
-  end
-
   def self.find(id)  
     all.find do |sale|
       sale.id.to_i == id.to_i
@@ -42,7 +30,6 @@ attr_accessor :id, :amount_in_cents, :purchase_time, :vendor_id, :product_id
   def self.sales_sum_in_cents(vendor_id)
     sum = 0
     all_sales_for_vendor = find_all_by_vendor_id(vendor_id)
-
     all_sales_for_vendor.map do |sale|
       sum = sum + sale.amount_in_cents.to_i
     end
@@ -71,6 +58,10 @@ attr_accessor :id, :amount_in_cents, :purchase_time, :vendor_id, :product_id
 
   def self.between(beginning_time, end_time)
     all.find_all { |sale| sale.purchase_time.between?( Time.parse(beginning_time), Time.parse(end_time) )}
+  end
+
+   def amount
+    @amount_in_cents
   end
 end
 
